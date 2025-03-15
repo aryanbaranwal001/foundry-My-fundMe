@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import {MockV3Aggregator} from "test/mock/MockV3aggregator.sol";
-import {Script} from "lib/forge-std/src/Script.sol";
+import {Script, console} from "lib/forge-std/src/Script.sol";
 
 contract HelperConfig is Script {
     error HelperConfig_InvalidChainId();
@@ -33,13 +33,16 @@ contract HelperConfig is Script {
     }
 
     function getOrCreateAnvilChainlinkAggregator() public returns (NetworkConfig memory) {
-        if (networkConfig[LOCAL_CHAIN_ID].priceFeedAddress == address(0)) {
+        if (networkConfig[LOCAL_CHAIN_ID].priceFeedAddress != address(0)) {
             return networkConfig[LOCAL_CHAIN_ID];
         }
-        vm.startBroadcast(); 
+
+        vm.startBroadcast();
         MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, RATE);
         vm.stopBroadcast();
 
+        console.log("MockV3Aggregator address: ", address(mockPriceFeed));
+        
         networkConfig[LOCAL_CHAIN_ID] = NetworkConfig(address(mockPriceFeed));
         return networkConfig[LOCAL_CHAIN_ID];
     }

@@ -5,6 +5,8 @@ import {AggregatorV3Interface} from
     "lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 import {PriceConverter} from "src/PriceConverter.sol";
 
+
+
 contract MyFundMe {
     using PriceConverter for uint256;
 
@@ -52,7 +54,7 @@ contract MyFundMe {
     function fund() public payable {
         require(s_fundState == FundState.OPEN, "Fund is closed");
 
-        if (msg.value.getUsdFromEth(s_priceFeed) <= MIN_USD) revert MyFundMe__NotMinimumFunds();
+        if (msg.value.getUsdFromEth(s_priceFeed) < MIN_USD) revert MyFundMe__NotMinimumFunds();
 
         s_addressToAmountFunded[msg.sender] += msg.value;
         s_funders.push(msg.sender);
