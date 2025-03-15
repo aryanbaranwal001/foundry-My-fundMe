@@ -5,8 +5,6 @@ import {AggregatorV3Interface} from
     "lib/chainlink-brownie-contracts/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 import {PriceConverter} from "src/PriceConverter.sol";
 
-
-
 contract MyFundMe {
     using PriceConverter for uint256;
 

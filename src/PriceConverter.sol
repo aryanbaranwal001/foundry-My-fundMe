@@ -12,4 +12,3 @@ library PriceConverter {
         // Divided by 1e18 to get the correct amount of USD in 1e18 units
     }
 }
- 

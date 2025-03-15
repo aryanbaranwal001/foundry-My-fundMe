@@ -1,0 +1,2 @@
+FundMeTest:testCheckWhoIsOwner() (gas: 8089)
+FundMeTest:testNoEntranceWithoutSufficientDollars() (gas: 107058)

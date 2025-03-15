@@ -41,8 +41,6 @@ contract HelperConfig is Script {
         MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, RATE);
         vm.stopBroadcast();
 
-        console.log("MockV3Aggregator address: ", address(mockPriceFeed));
-        
         networkConfig[LOCAL_CHAIN_ID] = NetworkConfig(address(mockPriceFeed));
         return networkConfig[LOCAL_CHAIN_ID];
     }
