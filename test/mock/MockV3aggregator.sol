@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract MockV3aggregator {
+contract MockV3Aggregator {
     uint256 public constant version = 4;
 
     uint8 public decimals;
