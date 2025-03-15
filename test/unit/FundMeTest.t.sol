@@ -25,7 +25,7 @@ contract FundMeTest is Test {
         fundMe.fund{value: CORNER_BALANCE}();
     }
 
-    function testCheckWhoIsOwner() public {
+    function testCheckWhoIsOwner() view public {
         assert(fundMe.s_owner() == msg.sender);
     }
 }

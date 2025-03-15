@@ -4,5 +4,5 @@ This project is a re-application of fundry-fundMe taught by cyfrin updraft with 
 
 1. Transferable OwnerShip of Smart Contract
 2. Owner can give all the funds of smart contract to any address
-3. If proposed Owner did not accept the proposal within a timespan, the proposal will get cancelled
-3. Implemented Enum which would not allow any funder to fund if transfer of ownership is taking place
+3. Owner can cancel the proposal if it has not been updated.
+4. Implemented Enum which would not allow any funder to fund if transfer of ownership is taking place.
